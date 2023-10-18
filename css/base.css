@@ -7,111 +7,127 @@ footer,
 header,
 main,
 nav {
-    display: block;
+  display: block;
 }
 
-*, *::before, *::after {
-    /* it takes all of our content wrapped in a div, and include its margin and padding in total size */
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  /* it takes all of our content wrapped in a div, and include its margin and padding in total size */
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    /* user can set their own browser font size, this will be the base size of users browser */
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--color-text);
-    background-color: var(--bg) ;
-    text-align: left;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  /* user can set their own browser font size, this will be the base size of users browser */
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--bg);
+  text-align: left;
 }
 
 a {
-    color: #495fef;
-    /* do you want hyperlinks to have an underline??? */
-    text-decoration: none;
-    background-color: transparent;
+  color: #495fef;
+  /* do you want hyperlinks to have an underline??? */
+  text-decoration: none;
+  background-color: transparent;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    color: var(--color-headings);
-    margin-top: 0.25rem;
-    margin-bottom: 0.5rem;
+  color: var(--color-headings);
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 button {
-    outline: none;
+  outline: none;
 }
 
 /* classes */
 
 .container,
 .container-fluid {
-    width: 100%;
-    /* using px instead of rem so the users setting does not interfere with the layout */
-    padding-left: 15px;
-    padding-right: 15px;
-    /* specifying only left and right instead of top and bottom here because don't want to have to override later if we don't know what the top and bottom margins are going to be going forward, 
+  width: 100%;
+  /* using px instead of rem so the users setting does not interfere with the layout */
+  padding-left: 15px;
+  padding-right: 15px;
+  /* specifying only left and right instead of top and bottom here because don't want to have to override later if we don't know what the top and bottom margins are going to be going forward, 
     this is going to help center our content*/
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container {
-    max-width: 1140px;
+  max-width: 1140px;
 }
 
 .ul-defaults-none {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* this removes the button defaults so we can make our own buttons */
 .btn {
-    font-weight: 700;
-    /* setting in px so the user font size doesn't mess up button */
-    min-width: 175px;
-    display: inline-block;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    /* spreads out text, makes it easier to read */
-    letter-spacing: 1.63px;
-    transition: 0.4s;
-    height: 65px;
-    padding-left: 30px;
-    padding-right: 30px;
-    box-shadow: 0 32px 54px rgba(3, 3, 3, 0.12);
+  font-weight: 700;
+  /* setting in px so the user font size doesn't mess up button */
+  min-width: 175px;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  /* spreads out text, makes it easier to read */
+  letter-spacing: 1.63px;
+  transition: 0.4s;
+  height: 65px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-shadow: 0 32px 54px rgba(3, 3, 3, 0.12);
 }
 
 /* when btn is not disabled, and doesn't have a class disabled, will have a cursor on hover */
-.btn:not(:disabled):not(.disabled), button:not(:disabled):not(.disabled){
-    cursor: pointer;
+.btn:not(:disabled):not(.disabled),
+button:not(:disabled):not(.disabled) {
+  cursor: pointer;
 }
 
 /* sometimes we use the button tag, sometimes we use the anchor tag to make buttons */
 .btn-primary,
 .btn-primary a {
-    color: #fff;
-    background-color: #495fef;
-    border-color: #495fef;
+  color: #fff;
+  background-color: #495fef;
+  border-color: #495fef;
 }
 
 .round-pill {
-    border-radius: 50rem;
+  border-radius: 50rem;
 }
 
+.header-lg {
+  font-size: 5rem;
+  letter-spacing: -2.5px;
+  line-height: 1.05;
+}
 
+.header-md {
+  font-size: 3rem;
+  letter-spacing: -2px;
+}
 
-
-
+.sub-header {
+  font-size: 1.3125rem;
+  line-height: 1.5;
+  padding-top: 1.25rem;
+  padding-bottom: 1.875rem;
+}

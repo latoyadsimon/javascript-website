@@ -1,55 +1,134 @@
 <!-- 10/15/2023 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/theme.css">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/pages.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/theme.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
     <title>folio</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="theme-panel">
+      <div class="theme-body">
+        <span>Change Theme</span>
+        <div class="btn-group">
+          <button data-toggle="light" class="switcher-btn active">Light</button>
+          <button data-toggle="dark" class="switcher-btn">Dark</button>
+        </div>
+        <button class="theme-tab">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+
     <!-- site wrapper -->
     <main class="site-wrapper">
-        <header class="site-header">
-            <nav class="navbar">
-                <div class="brand-logo">
-                    <a href="/"><h2>folio.</h2></a>
-                </div>
-                <div class="navbar-nav">
-                    <ul class="ul-defaults-none main-menu">
-                        <li class="nav-item">Home</li>
-                        <li class="nav-item">About Me</li>
-                        <li class="nav-item">Contact</li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-    </main>
-    
-    <!-- wrapper for a our full screen modal -->
-    <div class="full-site-modal page-block is-visible" data-animation="zoomInOut">
-        <header class="modal-header">
-            <h3>ABOUT PAGE</h3>
-            <i class="fas fa-times"></i>
-        </header>
-        <div class="modal-body">
-            <div class="img-wrapper">
-                <img src="./assets/images/week8imageassets-210215-111717/week 8 image assets/toya.jpeg" alt="picture of LaToya Simon">
+      <header class="site-header">
+        <nav class="navbar">
+          <div class="brand-logo">
+            <a href="/"><h2>folio.</h2></a>
+          </div>
+          <div class="navbar-nav">
+            <ul class="ul-defaults-none main-menu">
+              <li class="nav-item">Home</li>
+              <li class="nav-item" data-open="about">About Me</li>
+              <li class="nav-item" data-open="contact">Contact</li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Hero Section HTML-->
+      <section class="hero-bg">
+        <div class="container">
+          <div class="hero-content">
+            <div class="code-icon">
+              <i class="fas fa-code"></i>
             </div>
-            <h2>LaToya Simon</h2>
-            <p>text 1</p>
-            <p>text 2</p>
-            <div>
-                <div>Email Me:</div>
-                <a href="mailto:1stforgottentoy@gmail.com">1stforgottentoy@gmail.com</a>
+            <h2 class="header-lg">Code. Eat. Sleep.</h2>
+            <div class="sub-header">
+              I create meaningful solutions for your brands and products.
+              <br />
+              Give your customers the best experience possible.
             </div>
+            <div class="btn btn-primary round-pill">
+              <a href="#" data-open="contact">Let's talk now</a>
+            </div>
+          </div>
         </div>
+      </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- wrapper for a our full screen modal -->
+    <!-- About Page Modal -->
+    <div
+      id="about"
+      class="full-site-modal page-block"
+      data-animation="zoomInOut"
+    >
+      <header class="modal-header">
+        <h3>ABOUT PAGE</h3>
+        <i class="fas fa-times" data-close></i>
+      </header>
+      <div class="modal-body">
+        <div class="img-wrapper">
+          <img
+            src="./assets/images/week8imageassets-210215-111717/week 8 image assets/toya.jpeg"
+            alt="picture of LaToya Simon"
+          />
+        </div>
+        <h2>LaToya Simon</h2>
+        <p>text 1</p>
+        <p>text 2</p>
+        <div>
+          <div>Email Me:</div>
+          <a href="mailto:1stforgottentoy@gmail.com"
+            >1stforgottentoy@gmail.com</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Page Modal -->
+    <div
+      id="contact"
+      class="full-site-modal page-block"
+      data-animation="zoomInOut"
+    >
+      <header class="modal-header">
+        <h3>Contact PAGE</h3>
+        <i class="fas fa-times" data-close></i>
+      </header>
+      <div class="modal-body">
+        <div class="img-wrapper">
+          <img
+            src="./assets/images/week8imageassets-210215-111717/week 8 image assets/toya.jpeg"
+            alt="picture of LaToya Simon"
+          />
+        </div>
+        <h2>LaToya Simon</h2>
+        <p>text 1</p>
+        <p>text 2</p>
+        <div>
+          <div>Email Me:</div>
+          <a href="mailto:1stforgottentoy@gmail.com"
+            >1stforgottentoy@gmail.com</a
+          >
+        </div>
+      </div>
     </div>
 
     <script src="javaScript/main.js"></script>
-</body>
+  </body>
 </html>
