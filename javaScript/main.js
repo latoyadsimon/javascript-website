@@ -16,6 +16,10 @@ const modalOpen = "[data-open]";
 const modalClose = "[data-close]";
 const isVisible = "is-visible";
 
+//filter
+const dataFilter = "[data-filter]";
+const portfolioData = "[data-item]";
+
 // need access to the root of page
 //to access html element, this targets the html element of the document
 const root = document.documentElement;
@@ -24,6 +28,10 @@ const root = document.documentElement;
 const toggleTheme = document.querySelector(themeTab);
 const switcher = document.querySelectorAll(switcherBtn);
 const currentTheme = localStorage.getItem(theme);
+
+// Portfolio
+const filterLink = document.querySelectorAll(dataFilter);
+const portfolioItems = document.querySelectorAll(portfolioData);
 
 // Modal
 // will look through the document and hunt for our variables
@@ -80,6 +88,23 @@ for (const elm of switcher) {
   //set active state
   setActive(elm, switcherBtn);
   setTheme(toggle);
+}
+
+// filter
+for (const link of filterLink) {
+  link.addEventListener("click", function () {
+    setActive(link, ".filter-link");
+    const filter = this.dataset.filter;
+    portfolioItems.forEach((card) => {
+      if (filter === "all") {
+        card.style.display = "block";
+      } else if (card.dataset.item === filter) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
 }
 
 // full Site modal "open buttons"
