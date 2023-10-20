@@ -1,7 +1,29 @@
+-Theme - JavaScript: Part 1 and 2
+the theme does not change from light to dark based off the videos instructions.
+------
+question submitted to all questions:
+I am following along with the lessons up to this point and I notice that my code is not changing the theme from light to dark. I go back through the video and I notice on the inspect screen shown in the video for Theme - Javascript: Part 1, he refers to paying attention to the html tag that has the class of js-focus-visible on it and data-js-focus-visible data-theme="dark". Up til now it had not added that class. So I go back further through the videos thinking I've missed something and I noticed way back on the video
+Building the navbar section, the class is here as well. Just nowhere did it explain adding this class in the code. Have I missed something? Can anyone point me to a place up to where I am where we were shown how to add that if that is whats stopping my code from working?  In the lesson Theme- JavaScript Part 1 in the Javascript and the Dom module : At 17:21 you can see in the video where a class is showing on the html tag. I think this is why my code isn't working, but I can't see when this was added, can anybody point it out? The class js-focus-visible. I went all the way back through the previous videos and noticed it shows up in the Building the navbar section. I might just be missing it but I also think it might have been skipped over? Can someone give me a second pair of eyes? Here is a link to my github repo to see my code up until now for this module's exercises: https://github.com/latoyadsimon/javascript-website.git
+--------
+***
 -Portfolio card container touchups (video 6 mins)
 website for screen sizes -
 hobo-web.co.uk/best-screen-size/
-
 ---this website does not work
-
 --took a screenshot from video
+***
+
+- Creating active nav link states - JavaScript video did not work
+
+-Filtering Portfolio cards - JavaScript
+may not have worked because the one before it didn't work and these videos build on each other....
+
+// Error found that was breaking all of the code, my function here was outside of the curly braces, so it caused the theme switch not to work, as well as the active states for the filter
+// //includes our switcher buttons, the light and dark
+// for (const elm of switcher) {
+//   elm.addEventListener("click", function () {});//on this line
+//   const toggle = this.dataset.toggle;
+//   //set active state
+//   setActive(elm, switcherBtn);
+//   setTheme(toggle);
+// }

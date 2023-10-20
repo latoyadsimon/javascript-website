@@ -32,6 +32,8 @@ const currentTheme = localStorage.getItem(theme);
 // Portfolio
 const filterLink = document.querySelectorAll(dataFilter);
 const portfolioItems = document.querySelectorAll(portfolioData);
+// querySelector, we only want to select the one thing, we just want the id, so use a string, # for id
+const searchBox = document.querySelector("#search");
 
 // Modal
 // will look through the document and hunt for our variables
@@ -81,14 +83,40 @@ toggleTheme.addEventListener("click", function () {
   }
 });
 
+// Error found that was breaking all of the code, my function here was outside of the curly braces, so it caused the theme switch not to work, as well as the active states for the filter
+// //includes our switcher buttons, the light and dark
+// for (const elm of switcher) {
+//   elm.addEventListener("click", function () {});
+//   const toggle = this.dataset.toggle;
+//   //set active state
+//   setActive(elm, switcherBtn);
+//   setTheme(toggle);
+// }
+
 //includes our switcher buttons, the light and dark
 for (const elm of switcher) {
-  elm.addEventListener("click", function () {});
-  const toggle = this.dataset.toggle;
-  //set active state
-  setActive(elm, switcherBtn);
-  setTheme(toggle);
+  elm.addEventListener("click", function () {
+    const toggle = this.dataset.toggle;
+    //set active state
+    setActive(elm, switcherBtn);
+    setTheme(toggle);
+  });
 }
+
+// search box
+searchBox.addEventListener("keyup", (e) => {
+  // store the users input
+  //lowercase it and get rid of any white space
+  const searchInput = e.target.value.toLowerCase().trim();
+  //   console.log(searchInput);;
+  portfolioItems.forEach((card) => {
+    if (card.dataset.item.includes(searchInput)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
 
 // filter
 for (const link of filterLink) {
