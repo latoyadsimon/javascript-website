@@ -136,6 +136,7 @@ for (const link of filterLink) {
 }
 
 // full Site modal "open buttons"
+// same for Modals
 for (const elm of openModal) {
   elm.addEventListener("click", function () {
     // because we used a regular function, it gives us direct access to this(the parent object)(elm) - the node item
@@ -148,6 +149,23 @@ for (const elm of openModal) {
 for (const elm of closeModal) {
   elm.addEventListener("click", function () {
     // here, this is the icon itself(x), parentElement takes us from icon to header, calling again takes us to the outside where isVisible is
-    this.parentElement.parentElement.classList.remove(isVisible);
+    this.parentElement.parentElement.parentElement.classList.remove(isVisible);
   });
 }
+
+// for the individual modals
+document.addEventListener("click", (e) => {
+  //check if the element that is clicked on is the same as the element that has the isvisible on it
+  console.log(e.target, document.querySelector(".modal.is-visible"));
+  if (e.target === document.querySelector(".modal.is-visible")) {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  //this time we are doing a keypress for the escape key
+  console.log(e.key);
+  if (e.key === "Escape") {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+  }
+});
