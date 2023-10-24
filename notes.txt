@@ -27,3 +27,346 @@ may not have worked because the one before it didn't work and these videos build
 //   setActive(elm, switcherBtn);
 //   setTheme(toggle);
 // }
+
+--------
+10/23/2023
+portfolio-grid contents:
+      ```
+      <!-- border radius will go on this class outtermost container -->
+          <div class="portfolio-card" data-item="web" data-open="web-1">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-1.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>Web Development</div>
+                <h3>Food Website</h3>
+              </div>
+            </div>
+          </div>
+          <!-- border radius will go on this class outtermost container -->
+          <div class="portfolio-card" data-item="web" data-open="web-2">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-2.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>Web Development</div>
+                <h3>Skate Website</h3>
+              </div>
+            </div>
+          </div>
+          <!-- border radius will go on this class outtermost container -->
+          <div class="portfolio-card" data-item="web" data-open="web-3">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-3.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>Web Development</div>
+                <h3>Eating Website</h3>
+              </div>
+            </div>
+          </div>
+          <!-- border radius will go on this class outtermost container -->
+          <div class="portfolio-card" data-item="ui" data-open="ui-1">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-4.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>UI Design</div>
+                <h3>Cool Design</h3>
+              </div>
+            </div>
+          </div>
+          <!-- border radius will go on this class outtermost container -->
+          <div class="portfolio-card" data-item="app" data-open="app-1">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-5.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>App Development</div>
+                <h3>Game App</h3>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card" data-item="app" data-open="app-2">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-6.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>App Development</div>
+                <h3>Gambling App</h3>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card" data-item="app" data-open="app-3">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-7.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>App Development</div>
+                <h3>Money App</h3>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card" data-item="ui" data-open="ui-2">
+            <!--content for the body  -->
+            <div class="card-body">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-8.jpg"
+                alt="portfolio icon"
+              />
+              <div class="card-popup-box">
+                <div>UI Design</div>
+                <h3>Fantastic Design</h3>
+              </div>
+            </div>
+          </div>
+          ```
+
+-----pop up modal html contents
+``` <!-- Popup Modals -->
+      <!-- master wrapper for the modal 1-->
+      <div id="web-1" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>Web Project 1</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-1.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 2-->
+      <div id="web-2" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>Web Project 2</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-2.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 3-->
+      <div id="web-3" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>Web Project 3</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-3.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 4-->
+      <div id="app-1" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>App Project 1</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-5.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 5-->
+      <div id="app-2" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>App Project 2</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-6.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 6-->
+      <div id="app-3" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>App Project 3</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-7.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 7-->
+      <div id="ui-1" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>UI Project 1</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-4.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- master wrapper for the modal 8-->
+      <div id="ui-2" class="modal" data-animation="slideInOutTop">
+        <div class="modal-dialog">
+          <header class="modal-header">
+            <h3>UI Project 2</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/portfolio-8.jpg"
+                alt="portfolio image"
+              />
+            </div>
+            <div class="text-wrapper">
+              <p><strong>My first awesome website</strong></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                fugiat iusto optio, eaque rerum!
+              </p>
+              <p>
+                Provident similique accusantium nemo autem. Veritatis obcaecati
+                aliquam nihil, eveniet aliquid culpa officia aut!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      ```
