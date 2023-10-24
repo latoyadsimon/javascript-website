@@ -143,7 +143,66 @@ for (const elm of openModal) {
     // dataset is the data- part, then our attribute is whats after, for example open or close
     const modalId = this.dataset.open;
     document.getElementById(modalId).classList.add(isVisible);
+
+    // trying to make modals with js
+    const currentVisibleModal = document.querySelector(".modal.is-visible");
+
+    console.log("this is modalId: ", modalId);
+    console.log("this is visible: ", currentVisibleModal);
+
+    if (currentVisibleModal) {
+      //   const popUpModal = document.createElement("div");
+      //   popUpModal.setAttribute("id", modalId);
+      //   popUpModal.setAttribute("class", "modal");
+      //   popUpModal.setAttribute("data-animation", data2.dataAnimation);
+
+      const modalDialog = document.createElement("div");
+      modalDialog.setAttribute("class", "modal-dialog");
+
+      const modalHeader = document.createElement("header");
+      modalHeader.setAttribute("class", "modal-header");
+
+      const title2H3 = document.createElement("h3");
+      const iconSymbol = document.createElement("i");
+      iconSymbol.setAttribute("class", data2.symbol);
+      //   iconSymbol.setAttribute("data-close");
+
+      const modalBody = document.createElement("div");
+      modalBody.setAttribute("class", "modal-body");
+
+      const imgWrapper = document.createElement("div");
+      imgWrapper.setAttribute("class", "img-wrapper");
+
+      const image = document.createElement("img");
+      image.setAttribute("src", elm.img);
+      image.setAttribute("alt", elm.alt);
+
+      const textWrapper = document.createElement("div");
+      textWrapper.setAttribute("class", "text-wrapper");
+      const pStrong = document.createElement("p");
+      const pStrongPart = document.createElement("strong");
+      pStrongPart.innerText = elm.pStrongInput;
+      const paragraph1 = document.createElement("p");
+      paragraph1.innerText = data2.p1;
+      const paragraph2 = document.createElement("p");
+      paragraph2.innerText = data2.p2;
+
+      pStrong.append(pStrongPart);
+      textWrapper.append(pStrong);
+      textWrapper.append(paragraph1);
+      textWrapper.append(paragraph2);
+      imgWrapper.append(image);
+      modalBody.append(imgWrapper);
+      modalBody.append(textWrapper);
+      modalHeader.append(title2H3);
+      modalHeader.append(iconSymbol);
+      modalDialog.append(modalHeader);
+      modalDialog.append(modalBody);
+      //   popUpModal.append(modalDialog);
+      //   main.append(popUpModal);
+    }
   });
+  modal.append(modalDialog);
 }
 
 for (const elm of closeModal) {
@@ -169,3 +228,140 @@ document.addEventListener("keyup", (e) => {
     document.querySelector(".modal.is-visible").classList.remove(isVisible);
   }
 });
+
+// exercise: creating html with data
+// doesn't let the rest of the code work that we did in the videos up til now so going to comment out
+const data = [
+  {
+    id: 1,
+    dataItem: "web",
+    dataOpen: "web-1",
+    img: "./assets/images/week 8 image assets/portfolio-1.jpg",
+    alt: "portfolio-icon",
+    divTitle: "Web Development",
+    h3Title: "Food Website",
+    h3Title2: "Web Project 1",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 2,
+    dataItem: "web",
+    dataOpen: "web-2",
+    img: "./assets/images/week 8 image assets/portfolio-2.jpg",
+    alt: "portfolio-icon",
+    divTitle: "Web Development",
+    h3Title: "Skate Website",
+    h3Title2: "Web Project 2",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 3,
+    dataItem: "web",
+    dataOpen: "web-3",
+    img: "./assets/images/week 8 image assets/portfolio-3.jpg",
+    alt: "portfolio-icon",
+    divTitle: "Web Development",
+    h3Title: "Eating Website",
+    h3Title2: "Web Project 3",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 4,
+    dataItem: "ui",
+    dataOpen: "ui-1",
+    img: "./assets/images/week 8 image assets/portfolio-4.jpg",
+    alt: "portfolio-icon",
+    divTitle: "UI Design",
+    h3Title: "Cool Design",
+    h3Title2: "App Project 1",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 5,
+    dataItem: "app",
+    dataOpen: "app-1",
+    img: "./assets/images/week 8 image assets/portfolio-5.jpg",
+    alt: "portfolio-icon",
+    divTitle: "App Development",
+    h3Title: "Game App",
+    h3Title2: "App Project 2",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 6,
+    dataItem: "app",
+    dataOpen: "app-2",
+    img: "./assets/images/week 8 image assets/portfolio-6.jpg",
+    alt: "portfolio-icon",
+    divTitle: "App Development",
+    h3Title: "Gambling App",
+    h3Title2: "App Project 3",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 7,
+    dataItem: "app",
+    dataOpen: "app-3",
+    img: "./assets/images/week 8 image assets/portfolio-7.jpg",
+    alt: "portfolio-icon",
+    divTitle: "App Development",
+    h3Title: "Money",
+    h3Title2: "UI Project 1",
+    pStrongInput: "My first awesome website",
+  },
+  {
+    id: 8,
+    dataItem: "ui",
+    dataOpen: "ui-2",
+    img: "./assets/images/week 8 image assets/portfolio-8.jpg",
+    alt: "portfolio-icon",
+    divTitle: "UI Design",
+    h3Title: "Fantastic Design",
+    h3Title2: "UI Project 2",
+    pStrongInput: "My first awesome website",
+  },
+];
+
+const data2 = [
+  {
+    dataAnimation: "slideInOutTop",
+    dataClose: "data-close",
+    symbol: "fas fa-times",
+    p1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fugiat iusto optio, eaque rerum!",
+    p2: "Provident similique accusantium nemo autem. Veritatis obcaecati aliquam nihil, eveniet aliquid culpa officia aut!",
+  },
+];
+
+const portfolioGrid = document.querySelector(".portfolio-grid");
+
+const addCard = (cardData) => {
+  const portfolioCard = document.createElement("div");
+  portfolioCard.setAttribute("class", "portfolio-card");
+  portfolioCard.setAttribute("id", cardData.id);
+  portfolioCard.setAttribute("data-item", cardData.dataItem);
+  portfolioCard.setAttribute("data-open", cardData.dataOpen);
+
+  const cardBody = document.createElement("div");
+  cardBody.setAttribute("class", "card-body");
+
+  const image = document.createElement("img");
+  image.setAttribute("src", cardData.img);
+  image.setAttribute("alt", cardData.alt);
+  const popUpBox = document.createElement("div");
+  popUpBox.setAttribute("class", "card-popup-box");
+
+  const titleDiv = document.createElement("div");
+  titleDiv.innerText = cardData.divTitle;
+
+  const titleH3 = document.createElement("h3");
+  titleH3.innerText = cardData.h3Title;
+
+  popUpBox.append(titleDiv);
+  popUpBox.append(titleH3);
+  cardBody.append(image);
+  cardBody.append(popUpBox);
+  portfolioCard.append(cardBody);
+  portfolioGrid.append(portfolioCard);
+};
+
+data.forEach((itemData) => addCard(itemData));
