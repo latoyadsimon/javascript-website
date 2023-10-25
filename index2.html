@@ -1,9 +1,11 @@
 <!-- 10/15/2023 -->
+<!-- 10/25/2023, this copy will be used for the javascript exercises that use js data to  make html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="javaScript/makemodal.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -89,115 +91,7 @@
         </div>
 
         <div class="portfolio-grid">
-          <!-- border radius will go on this class outtermost container -->
-          <div class="portfolio-card" data-item="web" data-open="web-1">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-1.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>Web Development</div>
-                <h3>Food Website</h3>
-              </a>
-            </div>
-          </div>
-          <!-- border radius will go on this class outtermost container -->
-          <div class="portfolio-card" data-item="web">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-2.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>Web Development</div>
-                <h3>Skate Website</h3>
-              </a>
-            </div>
-          </div>
-          <!-- border radius will go on this class outtermost container -->
-          <div class="portfolio-card" data-item="web">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-3.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>Web Development</div>
-                <h3>Eating Website</h3>
-              </a>
-            </div>
-          </div>
-          <!-- border radius will go on this class outtermost container -->
-          <div class="portfolio-card" data-item="ui">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-4.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>UI Design</div>
-                <h3>Cool Design</h3>
-              </a>
-            </div>
-          </div>
-          <!-- border radius will go on this class outtermost container -->
-          <div class="portfolio-card" data-item="app">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-5.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>App Development</div>
-                <h3>Game App</h3>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-card" data-item="app">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-6.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>App Development</div>
-                <h3>Gambling App</h3>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-card" data-item="app">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-7.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>App Development</div>
-                <h3>Money App</h3>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-card" data-item="ui">
-            <!--content for the body  -->
-            <div class="card-body">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-8.jpg"
-                alt="portfolio icon"
-              />
-              <a href="#" class="card-popup-box">
-                <div>UI Design</div>
-                <h3>Fantastic Design</h3>
-              </a>
-            </div>
-          </div>
+          <!-- replacing with javascript, but keeping former html in notes.txt -->
         </div>
       </section>
 
@@ -265,35 +159,15 @@
         </div>
       </div>
 
+      <!-- putting html for popup modals in notes while working on Exercise Exercise: Creating dynamic Modals from data-->
       <!-- Popup Modals -->
-      <!-- master wrapper for the modal -->
-      <div id="web-1" class="modal" data-animation="slideInOutTop">
-        <div class="modal-dialog">
-          <header class="modal-header">
-            <h3>Web Project 1</h3>
-            <i class="fas fa-times" data-close></i>
-          </header>
-          <div class="modal-body">
-            <div class="img-wrapper">
-              <img
-                src="./assets/images/week 8 image assets/portfolio-1.jpg"
-                alt="portfolio image"
-              />
-            </div>
-            <div class="text-wrapper">
-              <p><strong>My first awesome website</strong></p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                fugiat iusto optio, eaque rerum!
-              </p>
-              <p>
-                Provident similique accusantium nemo autem. Veritatis obcaecati
-                aliquam nihil, eveniet aliquid culpa officia aut!
-              </p>
-            </div>
-          </div>
-        </div>
+      <!-- master wrapper for the modal 1-->
+      <div id="modal-container" class="modal" data-animation="slideInOutTop">
+        <!-- Modal content goes here -->
       </div>
+      <script>
+        document.querySelector("#modal-container").append(makeModal());
+      </script>
     </main>
 
     <script src="javaScript/main.js"></script>
