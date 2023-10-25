@@ -1,38 +1,94 @@
--Theme - JavaScript: Part 1 and 2
-the theme does not change from light to dark based off the videos instructions.
-------
-question submitted to all questions:
-I am following along with the lessons up to this point and I notice that my code is not changing the theme from light to dark. I go back through the video and I notice on the inspect screen shown in the video for Theme - Javascript: Part 1, he refers to paying attention to the html tag that has the class of js-focus-visible on it and data-js-focus-visible data-theme="dark". Up til now it had not added that class. So I go back further through the videos thinking I've missed something and I noticed way back on the video
-Building the navbar section, the class is here as well. Just nowhere did it explain adding this class in the code. Have I missed something? Can anyone point me to a place up to where I am where we were shown how to add that if that is whats stopping my code from working?  In the lesson Theme- JavaScript Part 1 in the Javascript and the Dom module : At 17:21 you can see in the video where a class is showing on the html tag. I think this is why my code isn't working, but I can't see when this was added, can anybody point it out? The class js-focus-visible. I went all the way back through the previous videos and noticed it shows up in the Building the navbar section. I might just be missing it but I also think it might have been skipped over? Can someone give me a second pair of eyes? Here is a link to my github repo to see my code up until now for this module's exercises: https://github.com/latoyadsimon/javascript-website.git
---------
-***
--Portfolio card container touchups (video 6 mins)
-website for screen sizes -
-hobo-web.co.uk/best-screen-size/
----this website does not work
---took a screenshot from video
-***
+<!-- i think i found the mistake from the previous commit -->
+<!-- 10/15/2023 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/theme.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/styles3.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
+    <title>folio</title>
+  </head>
+  <body>
+    <div class="theme-panel">
+      <div class="theme-body">
+        <span>Change Theme</span>
+        <div class="btn-group">
+          <button data-toggle="light" class="switcher-btn active">Light</button>
+          <button data-toggle="dark" class="switcher-btn">Dark</button>
+        </div>
+        <button class="theme-tab">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+    <!-- site wrapper -->
+    <main class="site-wrapper">
+      <header class="site-header">
+        <nav class="navbar">
+          <div class="brand-logo">
+            <a href="/"><h2>folio.</h2></a>
+          </div>
+          <div class="navbar-nav">
+            <ul class="ul-defaults-none main-menu">
+              <li class="nav-item">Home</li>
+              <li class="nav-item" data-open="about">About Me</li>
+              <li class="nav-item" data-open="contact">Contact</li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Hero Section HTML-->
+      <section class="hero-bg">
+        <div class="container">
+          <div class="hero-content">
+            <div class="code-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h2 class="header-lg">Code. Eat. Sleep.</h2>
+            <div class="sub-header">
+              I create meaningful solutions for your brands and products.
+              <br />
+              Give your customers the best experience possible.
+            </div>
+            <div class="btn btn-primary round-pill">
+              <a href="#" data-open="contact">Let's talk now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="porfolio-section">
+        <div class="container search-container">
+          <label for="search">
+            <input
+              autocomplete="off"
+              id="search"
+              type="text"
+              class="search-input"
+              placeholder="Search..."
+            />
+            <i class="fas fa-search"></i>
+          </label>
+          <ul class="portfolio-filter-nav ul-defaults-none">
+            <li data-filter="all" class="filter-link active">All Work</li>
+            <li data-filter="web" class="filter-link">Web Development</li>
+            <li data-filter="app" class="filter-link">App Development</li>
+            <li data-filter="ui" class="filter-link">UI Design</li>
+          </ul>
+        </div>
 
-- Creating active nav link states - JavaScript video did not work
-
--Filtering Portfolio cards - JavaScript
-may not have worked because the one before it didn't work and these videos build on each other....
-
-// Error found that was breaking all of the code, my function here was outside of the curly braces, so it caused the theme switch not to work, as well as the active states for the filter
-// //includes our switcher buttons, the light and dark
-// for (const elm of switcher) {
-//   elm.addEventListener("click", function () {});//on this line
-//   const toggle = this.dataset.toggle;
-//   //set active state
-//   setActive(elm, switcherBtn);
-//   setTheme(toggle);
-// }
-
---------
-10/23/2023
-portfolio-grid contents:
-      ```
-      <!-- border radius will go on this class outtermost container -->
+        <div class="portfolio-grid">
+          <!-- replacing with javascript, but keeping former html in notes.txt -->
+          <!-- border radius will go on this class outtermost container -->
           <div class="portfolio-card" data-item="web" data-open="web-1">
             <!--content for the body  -->
             <div class="card-body">
@@ -141,10 +197,73 @@ portfolio-grid contents:
               </div>
             </div>
           </div>
-          ```
+        </div>
+      </section>
+      <!-- Modals -->
+      <!-- wrapper for a our full screen modal -->
+      <!-- About Page Modal -->
+      <div
+        id="about"
+        class="full-site-modal page-block"
+        data-animation="zoomInOut"
+      >
+        <div class="container-fluid">
+          <header class="modal-header">
+            <h3>ABOUT PAGE</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/toya.jpeg"
+                alt="picture of LaToya Simon"
+              />
+            </div>
+            <h2>LaToya Simon</h2>
+            <p>text 1</p>
+            <p>text 2</p>
+            <div>
+              <div>Email Me:</div>
+              <a href="mailto:1stforgottentoy@gmail.com"
+                >1stforgottentoy@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contact Page Modal -->
+      <div
+        id="contact"
+        class="full-site-modal page-block"
+        data-animation="zoomInOut"
+      >
+        <div class="container-fluid">
+          <header class="modal-header">
+            <h3>Contact PAGE</h3>
+            <i class="fas fa-times" data-close></i>
+          </header>
+          <div class="modal-body">
+            <div class="img-wrapper">
+              <img
+                src="./assets/images/week 8 image assets/toya.jpeg"
+                alt="picture of LaToya Simon"
+              />
+            </div>
+            <h2>LaToya Simon</h2>
+            <p>text 1</p>
+            <p>text 2</p>
+            <div>
+              <div>Email Me:</div>
+              <a href="mailto:1stforgottentoy@gmail.com"
+                >1stforgottentoy@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
 
------pop up modal html contents
-``` <!-- Popup Modals -->
+      <!-- putting html for popup modals in notes while working on Exercise Exercise: Creating dynamic Modals from data-->
+      <!-- Popup Modals -->
       <!-- master wrapper for the modal 1-->
       <div id="web-1" class="modal" data-animation="slideInOutTop">
         <div class="modal-dialog">
@@ -369,8 +488,8 @@ portfolio-grid contents:
           </div>
         </div>
       </div>
-      ```
+    </main>
 
-      10/25/23
-      had to revert back to previous commit and then update files again until mistake was found.
-      styles3.css, main3.css, and index3.html are the most current files to use with the others.
+    <script src="javaScript/main3.js"></script>
+  </body>
+</html>
