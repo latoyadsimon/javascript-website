@@ -146,78 +146,12 @@ for (const elm of openModal) {
   });
 }
 
-// const cardModal = document.querySelector("card-popup-box");
-// cardModal.addEventListener("click", function () {
-//   console.log(cardModal);
-// });
-
 for (const elm of closeModal) {
   elm.addEventListener("click", function () {
     // here, this is the icon itself(x), parentElement takes us from icon to header, calling again takes us to the outside where isVisible is
     this.parentElement.parentElement.parentElement.classList.remove(isVisible);
   });
 }
-
-// trying to make popup modals with js
-const currentVisibleModal = document.querySelector(".modal.is-visible");
-
-// console.log("this is modalId: ", modalId);
-console.log("this is visible: ", currentVisibleModal);
-
-// if (currentVisibleModal) {
-//   const popUpModal = document.createElement("div");
-//   popUpModal.setAttribute("id", modalId);
-//   popUpModal.setAttribute("class", "modal");
-//   popUpModal.setAttribute("data-animation", data2.dataAnimation);
-
-//   const modalDialog = document.createElement("div");
-//   modalDialog.setAttribute("class", "modal-dialog");
-
-//   const modalHeader = document.createElement("header");
-//   modalHeader.setAttribute("class", "modal-header");
-
-//   const title2H3 = document.createElement("h3");
-//   const iconSymbol = document.createElement("i");
-//   iconSymbol.setAttribute("class", data2.symbol);
-//   iconSymbol.setAttribute("data-close");
-
-//   const modalBody = document.createElement("div");
-//   modalBody.setAttribute("class", "modal-body");
-
-//   const imgWrapper = document.createElement("div");
-//   imgWrapper.setAttribute("class", "img-wrapper");
-
-//   const image = document.createElement("img");
-//   image.setAttribute("src", elm.img);
-//   image.setAttribute("alt", elm.alt);
-
-//   const textWrapper = document.createElement("div");
-//   textWrapper.setAttribute("class", "text-wrapper");
-//   const pStrong = document.createElement("p");
-//   const pStrongPart = document.createElement("strong");
-//   pStrongPart.innerText = elm.pStrongInput;
-//   const paragraph1 = document.createElement("p");
-//   paragraph1.innerText = data2.p1;
-//   const paragraph2 = document.createElement("p");
-//   paragraph2.innerText = data2.p2;
-
-//   pStrong.append(pStrongPart);
-//   textWrapper.append(pStrong);
-//   textWrapper.append(paragraph1);
-//   textWrapper.append(paragraph2);
-//   imgWrapper.append(image);
-//   modalBody.append(imgWrapper);
-//   modalBody.append(textWrapper);
-//   modalHeader.append(title2H3);
-//   modalHeader.append(iconSymbol);
-//   modalDialog.append(modalHeader);
-//   modalDialog.append(modalBody);
-//   popUpModal.append(modalDialog);
-//   main.append(popUpModal);
-//   console.log("this is modalDialog: ", modalDialog);
-//   const modal = document.querySelector("modal");
-//   modal.append(modalDialog);
-// }
 
 // for the individual modals
 document.addEventListener("click", (e) => {
@@ -280,7 +214,7 @@ const data = [
     alt: "portfolio-icon",
     divTitle: "UI Design",
     h3Title: "Cool Design",
-    h3Title2: "App Project 1",
+    h3Title2: "UI Project 1",
     pStrongInput: "My first awesome website",
   },
   {
@@ -291,7 +225,7 @@ const data = [
     alt: "portfolio-icon",
     divTitle: "App Development",
     h3Title: "Game App",
-    h3Title2: "App Project 2",
+    h3Title2: "App Project 1",
     pStrongInput: "My first awesome website",
   },
   {
@@ -302,7 +236,7 @@ const data = [
     alt: "portfolio-icon",
     divTitle: "App Development",
     h3Title: "Gambling App",
-    h3Title2: "App Project 3",
+    h3Title2: "App Project 2",
     pStrongInput: "My first awesome website",
   },
   {
@@ -313,7 +247,7 @@ const data = [
     alt: "portfolio-icon",
     divTitle: "App Development",
     h3Title: "Money",
-    h3Title2: "UI Project 1",
+    h3Title2: "App Project 3",
     pStrongInput: "My first awesome website",
   },
   {
@@ -339,6 +273,7 @@ const data2 = [
   },
 ];
 
+// this is making the portfolio grid contents that we replace in the html
 const portfolioGrid = document.querySelector(".portfolio-grid");
 
 const addCard = (cardData) => {
@@ -372,3 +307,91 @@ const addCard = (cardData) => {
 };
 
 data.forEach((itemData) => addCard(itemData));
+
+//Exercise: Creating dynamic Modals from data
+const $modalContainer = document.querySelector("#modal-container");
+console.log($modalContainer);
+
+// adding Exercise: Creating dynamic Modals from data
+
+const portfolioCards = document.querySelectorAll(".card-popup-box");
+// console.log("this is openModal", openModal);
+
+portfolioCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    // console.log(data);
+    console.log("finding parent: ", card.parentElement.parentElement);
+    // console.log("finding parent: ", card.parentElement.parentElement.id);
+
+    let foundParentId = card.parentElement.parentElement.id;
+    const item = data.find((i) => i.id.toString() === foundParentId);
+
+    console.log({ item, foundParentId, data });
+    console.log(item.h3Title2);
+    console.log(item.img);
+
+    $modalContainer.classList.add(isVisible);
+
+    // $modalContainer.modal.classList.add(isVisible);
+    // console.log({ newModal });
+
+    // need to find something to compare between the data and element
+
+    // for (const item of data) {
+    //   if (foundParent === item.id) {
+    //     console.log(item);
+    // not logging ot the console
+    console.log(foundParentId, "and ", item.id);
+    $modalContainer.innerHTML = `<div class="modal" data-animation="slideInOutTop">
+         <div class="modal-dialog">
+           <header class="modal-header">
+             <h3>"${item.h3Title2}"</h3>
+             <i class="fas fa-times" data-close></i>
+           </header>
+           <div class="modal-body">
+             <div class="img-wrapper">
+               <img
+                 src="${item.img}"
+                 alt="portfolio image"
+               />
+             </div>
+             <div class="text-wrapper">
+               <p>
+                 <strong>"${item.pStrongInput}"</strong>
+               </p>
+               <p>
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                 fugiat iusto optio, eaque rerum!
+               </p>
+               <p>
+                 Provident similique accusantium nemo autem. Veritatis obcaecati
+                 aliquam nihil, eveniet aliquid culpa officia aut!
+               </p>
+             </div>
+           </div>
+         </div>
+       </div>;`;
+    //   }
+    // }
+    const modalCardPopUP = $modalContainer.querySelector("div");
+    console.log("Iwanna put stuff here: ", modalCardPopUP);
+    modalCardPopUP.classList.add(isVisible);
+
+    const getTheIcon = modalCardPopUP.querySelector("i");
+    console.log("did i get the icon?: ", getTheIcon);
+    // for (const elm of closeModal) {
+    getTheIcon.addEventListener("click", function () {
+      // here, this is the icon itself(x), parentElement takes us from icon to header, calling again takes us to the outside where isVisible is
+      this.parentElement.parentElement.parentElement.classList.remove(
+        isVisible
+      );
+      this.parentElement.parentElement.parentElement.parentElement.classList.remove(
+        isVisible
+      );
+      $modalContainer.innerHTML = `<!-- Modal content goes here -->`;
+    });
+    // }
+  });
+});
+
+//when a portfolio card is clicked, display a popup with more information.

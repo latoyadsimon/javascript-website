@@ -373,4 +373,4 @@ portfolio-grid contents:
 
       10/25/23
       had to revert back to previous commit and then update files again until mistake was found.
-      styles3.css, main3.css, and index3.html are the most current files to use with the others.
+      styles3.css, main3.css, and index3.html are the most current files to use with the others. Files with 2 in them will be used for the lines of code replacing html data with javascript
