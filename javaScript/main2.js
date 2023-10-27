@@ -29,12 +29,6 @@ const toggleTheme = document.querySelector(themeTab);
 const switcher = document.querySelectorAll(switcherBtn);
 const currentTheme = localStorage.getItem(theme);
 
-// Portfolio
-const filterLink = document.querySelectorAll(dataFilter);
-const portfolioItems = document.querySelectorAll(portfolioData);
-// querySelector, we only want to select the one thing, we just want the id, so use a string, # for id
-const searchBox = document.querySelector("#search");
-
 // Modal
 // will look through the document and hunt for our variables
 const openModal = document.querySelectorAll(modalOpen);
@@ -103,37 +97,7 @@ for (const elm of switcher) {
   });
 }
 
-// search box
-searchBox.addEventListener("keyup", (e) => {
-  // store the users input
-  //lowercase it and get rid of any white space
-  const searchInput = e.target.value.toLowerCase().trim();
-  //   console.log(searchInput);;
-  portfolioItems.forEach((card) => {
-    if (card.dataset.item.includes(searchInput)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-});
-
-// filter
-for (const link of filterLink) {
-  link.addEventListener("click", function () {
-    setActive(link, ".filter-link");
-    const filter = this.dataset.filter;
-    portfolioItems.forEach((card) => {
-      if (filter === "all") {
-        card.style.display = "block";
-      } else if (card.dataset.item === filter) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  });
-}
+// need to move search functions below the adding card functions
 
 // full Site modal "open buttons"
 // same for Modals
@@ -331,17 +295,8 @@ portfolioCards.forEach((card) => {
     console.log(item.img);
 
     $modalContainer.classList.add(isVisible);
-
-    // $modalContainer.modal.classList.add(isVisible);
-    // console.log({ newModal });
-
-    // need to find something to compare between the data and element
-
-    // for (const item of data) {
-    //   if (foundParent === item.id) {
-    //     console.log(item);
-    // not logging ot the console
     console.log(foundParentId, "and ", item.id);
+
     $modalContainer.innerHTML = `<div class="modal" data-animation="slideInOutTop">
          <div class="modal-dialog">
            <header class="modal-header">
@@ -374,7 +329,7 @@ portfolioCards.forEach((card) => {
     //   }
     // }
     const modalCardPopUP = $modalContainer.querySelector("div");
-    console.log("Iwanna put stuff here: ", modalCardPopUP);
+    console.log("I wanna put stuff here: ", modalCardPopUP);
     modalCardPopUP.classList.add(isVisible);
 
     const getTheIcon = modalCardPopUP.querySelector("i");
@@ -395,3 +350,42 @@ portfolioCards.forEach((card) => {
 });
 
 //when a portfolio card is clicked, display a popup with more information.
+
+// Portfolio
+const filterLink = document.querySelectorAll(dataFilter);
+const portfolioItems = document.querySelectorAll(portfolioData);
+// querySelector, we only want to select the one thing, we just want the id, so use a string, # for id
+const searchBox = document.querySelector("#search");
+
+// search box
+searchBox.addEventListener("keyup", (e) => {
+  // store the users input
+  //lowercase it and get rid of any white space
+  const searchInput = e.target.value.toLowerCase().trim();
+  //   console.log(searchInput);;
+  portfolioItems.forEach((card) => {
+    console.log("this is the card.dataset.item: ", card.dataset.item);
+    if (card.dataset.item.includes(searchInput)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
+// filter
+for (const link of filterLink) {
+  link.addEventListener("click", function () {
+    setActive(link, ".filter-link");
+    const filter = this.dataset.filter;
+    portfolioItems.forEach((card) => {
+      if (filter === "all") {
+        card.style.display = "block";
+      } else if (card.dataset.item === filter) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+}
