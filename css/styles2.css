@@ -204,6 +204,12 @@
   cursor: pointer;
 }
 
+/* added this class myself so that all the containers for the images would be the same size */
+.card-body {
+  width: 255px;
+  height: 255px;
+}
+
 .card-body img {
   width: 100%;
   height: 255px;
