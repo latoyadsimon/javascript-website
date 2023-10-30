@@ -138,14 +138,14 @@ for (const elm of closeModal) {
 // for the individual modals
 document.addEventListener("click", (e) => {
   //check if the element that is clicked on is the same as the element that has the isvisible on it
-  console.log(e.target, document.querySelector(".modal.is-visible"));
+  //   console.log(e.target, document.querySelector(".modal.is-visible"));
   if (e.target === document.querySelector(".modal.is-visible")) {
     document.querySelector(".modal.is-visible").classList.remove(isVisible);
   }
 });
 document.addEventListener("keyup", (e) => {
   //this time we are doing a keypress for the escape key
-  console.log(e.key);
+  //   console.log(e.key);
   if (e.key === "Escape") {
     document.querySelector(".modal.is-visible").classList.remove(isVisible);
   }
