@@ -1,6 +1,20 @@
 /* overriding browser defaults */
 /* Setting up base styles */
 
+/* creating for marquee */
+:root {
+  --marquee-width: 80vw;
+  --marquee-height: 15vh;
+  --marquee-elms-displayed: 5;
+  /* math that will scale depending on size of view port and number of items displayed */
+  --marquee-elm-width: calc(
+    var(--marquee-width) / var(--marquee-elms-displayed)
+  );
+  /* duration of animation */
+  --marquee-duration-animation: calc(var(--marquee-elms) * 3s);
+  /* --marquee-elms: 10; */
+}
+
 /* native selectors */
 section,
 footer,

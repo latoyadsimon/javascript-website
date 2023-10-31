@@ -150,3 +150,24 @@ document.addEventListener("keyup", (e) => {
     document.querySelector(".modal.is-visible").classList.remove(isVisible);
   }
 });
+
+// get elements displayed
+// nodeList.length (list of the elements)
+// assign --marquee-elms nodeList.length
+
+// we are grabbing the :root object, and passing in the key we want
+const elmsDisplayed = getComputedStyle(root).getPropertyValue(
+  "--marquee-elms-displayed"
+);
+
+// we are grabbing the entire element, the unordered list
+const marqueeContent = document.querySelector("ul.marquee-content");
+
+// grabbing the root. setProperty takes two arguments property and value.
+// marqueeContent.children are the list items in the unordered list, that is what we want the count of
+root.style.setProperty("--marquee-elms", marqueeContent.children.length);
+
+// making a clone of the child elements(li) in the unordered lists
+for (let i = 0; i < elmsDisplayed; i++) {
+  marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+}
